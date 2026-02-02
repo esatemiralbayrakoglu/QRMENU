@@ -1,0 +1,49 @@
+﻿@using QRMENU.Models;
+@model QRMENU.ViewModels.MenuViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/qrmenu/css/styles.css" rel="stylesheet" />
+    
+</head>
+
+<body class="arka" background="~/qrmenu/background-food-tasty-olives-wooden-background-cooking-1369813-pxhere.com.jpg" >
+    <a class="logo" href="~/Default/Index"><img src="~/qrmenu/logo17072020-175055.png" alt=""></a> 
+    @{ @Html.Action("KayarMenu", "Default");}
+    
+    @if (Model.stok.id > 0)
+    {
+        <a href="~/Default/Index?grubu=@Model.stok.grubu">
+            <img src="~/qrmenu/pngwing.com.png" height="50" style="background-color:#eeeeeeaa;border-radius:50%" />
+        </a>
+    }
+
+
+    <div class="ayrinti-yazi">
+        <img class="aciklama-resim" src="~/qrmenu/karisik izgara-1200x810w.jpg" alt="">
+        <br />
+        <b>AÇIKLAMA : </b>@Model.stok.aciklama_1
+        <br />
+        <b>FİYAT : @Model.stok_fiyatlar.fiyati ₺</b>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/qrmenu/js/scripts.js"></script>
+    <footer>
+        @*<h2 style="text-align:center; color:white">Favori Yemeklerimiz</h2>
+        @{ @Html.Action("favoriyemekler", "Default");}
+    </footer>*@
+</body>
+</html>

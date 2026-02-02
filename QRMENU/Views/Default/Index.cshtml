@@ -1,0 +1,60 @@
+﻿@using QRMENU.Models;
+@model List<QRMENU.ViewModels.MenuViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/qrmenu/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="arka" background="~/qrmenu/background-food-tasty-olives-wooden-background-cooking-1369813-pxhere.com.jpg">
+
+    <a class="logo" href="~/Default/Index"><img src="~/qrmenu/logo17072020-175055.png" alt=""></a>
+
+    @Html.Action("KayarMenu", "Default")   
+
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @foreach (var stc in Model)
+                {
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <a href="~/Default/Ayrintilar?stok_id=@stc.stok.id"><img class="card-img-top" src="~/qrmenu/akcaabat-koftesi-one-cikan.jpg" alt="..." /></a>
+                            <a href="~/Default/Ayrintilar?stok_id=@stc.stok.id" style="text-decoration: none; color: #393939">
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <h5 class="fw-bolder">@stc.stok.stok_adi</h5>
+                                        <h5>1 @stc.stok_birimler.birimler @stc.stok_fiyatlar.fiyati ₺</h5>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="~/Default/Ayrintilar?stok_id=@stc.stok.id">Detaylar</a></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/qrmenu/js/scripts.js"></script>
+    @*<footer>
+            <h2 style="text-align:center; color:white">Favori Yemeklerimiz</h2>
+            { @Html.Action("favoriyemekler", "Default");
+        </footer>*@
+</body>
+</html>
+

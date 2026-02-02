@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @foreach (var stc in ViewBag.grup)
+                {
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <a href="~/Default/Index?grubu=@stc.ismi"><img class="card-img-top" src="~/qrmenu/akcaabat-koftesi-one-cikan.jpg" alt="..." /></a>
+                            <a href="~/Default/Index?grubu=@stc.ismi" style="text-decoration:none;color:#363636">
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <h5 class="fw-bolder">@stc.ismi</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+<div class="menu-position" width="500">
+    <span onclick="openNav()"><a><img class="menuresim" src="~/qrmenu/pngaaa.com-2275904.png" alt=""></a></span>
+</div>
+<div id="main"></div>
+
